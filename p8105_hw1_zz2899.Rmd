@@ -1,0 +1,27 @@
+---
+title: "P8150 HW1"
+author: "Ziwei Zhao"
+date: "2021/9/22"
+output: html_document
+---
+
+```{r, message = FALSE}
+library(tidyverse)
+```
+
+### Problem 1
+
+```{r, message = FALSE}
+set.seed(6789)
+df1 <- 
+  tibble(
+    vec_num = rnorm(10),
+    vec_log = vec_num > 0,
+    vec_char = character(length = 10),
+    vec_fac = factor(
+      c("1", "2", "3", "3", "2", "1", "1", "1", "2", "3")
+    )
+  )
+df1
+```
+
