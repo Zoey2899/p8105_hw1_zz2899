@@ -74,3 +74,13 @@ mean(na.omit(penguins$flipper_length_mm))
 
 The data set includes information about species, island, and sex (factor vectors) of penguins, as well as data of bill length, bill depth, flipper length, body mass, as year (numeric vectors). The data set has 344 rows and 8 columns. The mean flipper length is 200.9mm, which was calculated after removing NAs.
 
+```{r, message=FALSE, warning=FALSE}
+#Make the scatterplot
+ggplot(penguins, 
+       aes(x = bill_length_mm, 
+           y = flipper_length_mm, 
+           color = species)) + geom_point()
+#Export the scatterplot
+ggsave("scatterplot.pdf")
+```
+
