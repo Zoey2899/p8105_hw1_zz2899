@@ -2,7 +2,7 @@
 title: "P8150 HW1"
 author: "Ziwei Zhao"
 date: "2021/9/22"
-output: html_document
+output: github_document
 ---
 
 ```{r, message = FALSE}
@@ -11,17 +11,43 @@ library(tidyverse)
 
 ### Problem 1
 
+Create a data frame df1.
+
 ```{r, message = FALSE}
+#Set a random seed
 set.seed(6789)
+#Create a data frame
 df1 <- 
   tibble(
-    vec_num = rnorm(10),
+    #a random sample of size 10 from a standard Normal distribution
+    vec_num = rnorm(10), 
+    #a logical vector indicating whether elements of the sample are greater than 0
     vec_log = vec_num > 0,
+    #a character vector of length 10
     vec_char = character(length = 10),
+    #a factor vector of length 10, with 3 different factor “levels”
     vec_fac = factor(
-      c("1", "2", "3", "3", "2", "1", "1", "1", "2", "3")
+      c("level 1", "level 2", "level 3", "level 3", "level 2", "level 1", "level 1", "level 1", "level 2", "level 3")
     )
   )
+#Check the data frame
 df1
 ```
+
+Take the mean of each variable in your data frame.
+
+```{r, message=FALSE}
+#Take the mean of vec_num
+mean(pull(df1, vec_num))
+#Take the mean of vec_log
+mean(pull(df1, vec_log))
+#Take the mean of vec_char
+mean(pull(df1, vec_char))
+#Take the mean of vec_fac
+mean(pull(df1, vec_fac))
+```
+
+Means can be calculated for numeric and logical vectors, but cannot be calculated for character and factor vectors.
+
+
 
