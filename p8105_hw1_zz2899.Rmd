@@ -24,7 +24,7 @@ df1 <-
     #a logical vector indicating whether elements of the sample are greater than 0
     vec_log = vec_num > 0,
     #a character vector of length 10
-    vec_char = character(length = 10),
+    vec_char = c("AA", "BB", "CC", "DD", "EE", "FF", "GG", "HH", "II", "JJ"),
     #a factor vector of length 10, with 3 different factor “levels”
     vec_fac = factor(
       c("level 1", "level 2", "level 3", "level 3", "level 2", "level 1", "level 1", "level 1", "level 2", "level 3")
@@ -49,5 +49,15 @@ mean(pull(df1, vec_fac))
 
 Means can be calculated for numeric and logical vectors, but cannot be calculated for character and factor vectors.
 
+Then, apply as.numeric function to the logical, character, and factor variables
+
+```{r, echo=T, results='hide', warning=FALSE}
+as.numeric(pull(df1, vec_num))
+as.numeric(pull(df1, vec_log))
+as.numeric(pull(df1, vec_char))
+as.numeric(pull(df1, vec_fac))
+```
+
+Numeric, logical, and factor values can be converted to numeric values by as.numeric function, but as.numeric function returns NA for all character values. This means when we try to take the mean, the mean function will not automatically apply as.numeric to those values, because factor values can be converted to numeric values by as.numeric but mean function still cannot calculate their mean.
 
 
